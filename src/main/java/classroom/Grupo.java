@@ -5,7 +5,7 @@ public class Grupo {
     Persona[] estudiantes;
     Persona profesor;
     Asignatura asignatura;
-    final int codigo = 0;
+    final int codigo;
     String horario;
 
     Grupo(Persona[] estudiantes, Persona profesor, Asignatura asignatura, int codigo, String horario) {
@@ -16,15 +16,15 @@ public class Grupo {
         this.horario = horario;
     }
 
-    Grupo(int cantidadEstudiantes, Persona profesor, Asignatura asignatura, int codigo, String horario) {
-        Persona[] personas = new Persona[cantidadEstudiantes];
-        this(personas, profesor, asignatura, codigo, horario);
+    Grupo(int cantidadEstudiantes, Persona profesor, Asignatura asignatura, int codigo, String horario){
+        this(new Persona[cantidadEstudiantes], profesor, asignatura, codigo, horario);
     }
 
     Grupo(Persona[] estudiantes, Persona profesor, Asignatura asignatura) {
         this.estudiantes = estudiantes;
         this.profesor = profesor;
         this.asignatura = asignatura;
+        this.codigo = 0;
     }
 
     void cambiarEstudiante(Persona estudianteViejo, Persona estudianteNuevo) {

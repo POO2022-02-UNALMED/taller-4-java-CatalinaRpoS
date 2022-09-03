@@ -10,15 +10,16 @@ public class Asignatura {
 
     Asignatura() {
         this("Sin nombre",Tipo.FUNDAMENTACION);
-        this(0);
     }
 
-    Asignatura(int codigoInterno,Tipo tipo) {
-        this("Sin nombre", codigoInterno, 0,tipo);
-    }
+    // Considero que el atributo codigoExterno es quien recibe el valor inicial al llamar el constructor
+
+    //Asignatura(int codigoInterno, Tipo tipo) {
+    //   this("Sin nombre", codigoInterno, 0, tipo);
+    //}
 
     Asignatura(int codigoExterno,Tipo tipo) {
-        this("Sin nombre", 0, codigoExterno,tipo);
+        this("Sin nombre", 0, codigoExterno, tipo);
     }
 
     Asignatura(String nombre, Tipo tipo) {
@@ -39,12 +40,13 @@ public class Asignatura {
         this.tipo = tipo;
     }
 
-    void cambiarDatos(int codigoInterno) {
-        this.codigoInterno = codigoInterno;
-    }
-
-    void cambiarDatos(int codigoExterno) {
-        this.codigoExterno = codigoExterno;
+    void cambiarDatos(int codigo) {
+        if (this.codigoInterno != 0){
+            setCodigoInterno(codigo);
+        }
+        else{
+            setCodigoExterno(codigo);
+        }
     }
 
     void cambiarDatos(String nombre) {
@@ -55,7 +57,7 @@ public class Asignatura {
         this.codigoInterno = codigoInterno;
     }
     
-    public void setCodigoInterno(double codigoInterno) {
-        this.codigoInterno = (int) codigoInterno;
+    public void setCodigoExterno(int codigoExterno) {
+        this.codigoExterno = codigoExterno;
     }
 }
